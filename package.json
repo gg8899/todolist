@@ -1,0 +1,38 @@
+{
+  "name": "todolist-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack server --open --port 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "antd": "^5.21.4",
+    "babel-loader": "^9.2.1",
+    "babel-plugin-import": "^1.13.8",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}

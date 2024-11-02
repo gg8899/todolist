@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "lib": [
+            "ES2016",
+            "DOM"
+        ],
+        "module": "ESNext",
+        "jsx": "react",
+        "sourceMap": true,
+        "strict": true,
+        "importHelpers": true,
+        "skipLibCheck": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/declarations.d.ts" // 确保包含该声明文件
+    ]
+}
