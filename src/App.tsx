@@ -1,10 +1,11 @@
 import React from 'react';
-import TodoList from '@/components/TodoList'
+import Index from '@/components/Index'
 
-const App: React.FC = () => (
-  <>
-    <TodoList />
-  </>
-);
+const App: React.FC = () => {
+ 
+  return (<>
+      <Index />
+  </>)
+};
 
 export default App;

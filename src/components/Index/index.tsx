@@ -1,13 +1,31 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Card,  List, Checkbox, Button } from 'antd';
+import { Tabs } from 'antd';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ItemType, ToDoObjType, TodoListData } from '@/types/index';
+import TodoList from '@/components/TodoList';
+import DoneList from '@/components/DoneList';
 import TodoListService from '@/utils/index';
+import { ItemType, ToDoObjType, TodoListData } from '@/types/index';
+import type { TabsProps } from 'antd';
 
+const Index: React.FC = () => {
+    const items: TabsProps['items'] = [
+        {
+            key: '1',
+            label: '代办事项',
+            children: <TodoList />,
+        },
+        {
+            key: '2',
+            label: '已完成事項',
+            children: <DoneList />,
+        },
+    ];
+    const onChange = () => {
 
-const TodoList: React.FC = () => {
-   
+    }
+    const TabsComp: React.FC = () => <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+
     const [dataList, setDataList] = useState<ItemType[]>([])
 
     useEffect(() => {
@@ -21,7 +39,7 @@ const TodoList: React.FC = () => {
     }, [dataList])
 
     const getAllData = () => {
-        const data: ItemType[] = TodoListService.getTodos().filter((item: ItemType) => item.check == false);
+        const data: ItemType[] = TodoListService.getTodos();
         setDataList(data);
     }
 
@@ -46,20 +64,11 @@ const TodoList: React.FC = () => {
 
     return (
         <>
-            <List rowKey="id"
-                itemLayout="horizontal"
-                dataSource={dataList}
-                renderItem={(item, index) => (
-                    <List.Item extra={<Button onClick={() => delData(item.id)} type='link'>删除</Button>}>
-                        <List.Item.Meta
-                            avatar={<Checkbox checked={item.check} onChange={() => changeStatus(item.id)} />}
-                            description={item.title}
-                        />
-                    </List.Item>
-                )}
-            />
+            <Header getNewData={addToDoList} />
+            <TabsComp />
+            <Footer toDoObj={toDoObj} clearComplete={clearComplete} />
         </>
     )
 };
 
-export default TodoList;
+export default Index;

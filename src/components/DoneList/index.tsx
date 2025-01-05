@@ -1,15 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Card,  List, Checkbox, Button } from 'antd';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { ItemType, ToDoObjType, TodoListData } from '@/types/index';
 import TodoListService from '@/utils/index';
 
 
 const TodoList: React.FC = () => {
-   
     const [dataList, setDataList] = useState<ItemType[]>([])
-
     useEffect(() => {
         getAllData()
     }, [])
@@ -21,7 +17,7 @@ const TodoList: React.FC = () => {
     }, [dataList])
 
     const getAllData = () => {
-        const data: ItemType[] = TodoListService.getTodos().filter((item: ItemType) => item.check == false);
+        const data: ItemType[] = TodoListService.getTodos().filter((item: ItemType) => item.check == true);
         setDataList(data);
     }
 
